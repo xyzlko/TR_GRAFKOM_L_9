@@ -897,7 +897,7 @@ void hilang(void)
     lapangan();//luthfi
     detailinglapangan();bataslapangan();//bagus
     tribunbelakang();tribunkanan();tribunkiri();tribundepan();//luthfi
-    detailingtribun();//iril
+    detailingtribun();//fairil
     glPushMatrix();
     glPopMatrix();
     glutSwapBuffers();;
@@ -908,7 +908,7 @@ void tampil(void)
     lapangan();//luthfi
     detailinglapangan();bataslapangan();//bagus
     tribunbelakang();tribunkanan();tribunkiri();tribundepan();//luthfi
-    detailingtribun();//iril
+    detailingtribun();//fairil
     glPushMatrix();
     glPopMatrix();
     glutSwapBuffers();;
