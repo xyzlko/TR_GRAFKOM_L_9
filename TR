@@ -3,6 +3,9 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include <math.h>
+#define M_PI 3.14
+
+int titik, TitikX, TitikY,TitikZ, rad, r;
 
 float xrot = 0.0f;
 float yrot = 0.0f;
@@ -2930,10 +2933,156 @@ void cangkangatas(void)
     glVertex3f(-23,34,40);
     glEnd();
 }
+void tambahan(void)
+{
+    glLineWidth(1);
+    glBegin(GL_QUADS);
+    glColor3ub(54, 54, 54);
+    glVertex3f(100,-20,100);
+    glVertex3f(100,-20,-100);
+    glVertex3f(-100,-20,-100);
+    glVertex3f(-100,-20,100);
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3ub(77, 77, 77);
+    glVertex3f(100,-10,100);
+    glVertex3f(100,-20,100);
+    glVertex3f(100,-20,-100);
+    glVertex3f(100,-10,-100);
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3ub(77, 77, 77);
+    glVertex3f(-100,-10,100);
+    glVertex3f(-100,-20,100);
+    glVertex3f(-100,-20,-100);
+    glVertex3f(-100,-10,-100);
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3ub(77, 77, 77);
+    glVertex3f(100,-10,-100);
+    glVertex3f(100,-20,-100);
+    glVertex3f(-100,-20,-100);
+    glVertex3f(-100,-10,-100);
+    glEnd();
+    glBegin(GL_QUADS);
+    glColor3ub(77, 77, 77);
+    glVertex3f(100,-10,100);
+    glVertex3f(100,-20,100);
+    glVertex3f(-100,-20,100);
+    glVertex3f(-100,-10,100);
+    glEnd();
+    glBegin(GL_LINE_LOOP);//link tengah lpg
+    glColor3ub(255, 255, 255);
+        rad = 45;
+        titik = 360;
+        TitikX = 0;
+        TitikY = 2125;
+        TitikZ = 0;
+
+        for (r=0; r<=360; r++){
+            float sudut=r*(2*M_PI/titik);
+            float x=TitikX+rad*cos(sudut);
+            float y=TitikY+rad*sin(sudut);
+            float z=TitikZ+rad*sin(sudut);
+            glVertex3f(x/5,y/-220,z/5);
+        }
+    glEnd();
+    glBegin(GL_LINE_LOOP);//set link dpn
+    glColor3ub(255, 255, 255);
+        rad = 20;
+        titik = 360;
+        TitikX = 0;
+        TitikY = 2200;
+        TitikZ = 120;
+
+        for (r=0; r<=360; r++){
+            float sudut=r*(2*M_PI/titik);
+            float x=TitikX+rad*cos(sudut);
+            float y=TitikY+rad*sin(sudut);
+            float z=TitikZ+rad*sin(sudut);
+            glVertex3f(x/5,y/-220,z/5);
+        }
+    glEnd();
+    glBegin(GL_LINE_LOOP);//set ling blkg
+    glColor3ub(255, 255, 255);
+        rad = 20;
+        titik = 180;
+        TitikX = 0;
+        TitikY = 2125;
+        TitikZ = -119;
+
+        for (r=0; r<=90; r++){
+            float sudut=r*(2*M_PI/titik);
+            float x=TitikX+rad*cos(sudut);
+            float y=TitikY+rad*sin(sudut);
+            float z=TitikZ+rad*sin(sudut);
+            glVertex3f(x/5,y/-220,z/5);
+        }
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0, 189, 9);
+    glVertex3f(-7.5,-9.67,30.0);
+    glVertex3f(-7.5,-9.67,24.0);
+    glVertex3f(7.5,-9.67,24.0);
+    glVertex3f(7.5,-9.67,30.0);
+    glEnd();
+    
+    glBegin(GL_LINE_LOOP); //garis gawang 2
+    glColor3ub(255, 255, 255);
+    glVertex3f(-7.5,-9.97,30.0);
+    glVertex3f(-7.5,-9.7,24.0);
+    glVertex3f(7.5,-9.7,24.0);
+    glVertex3f(7.5,-9.97,30.0);
+    glEnd();
+    
+    glBegin(GL_LINE_LOOP);//tiang pojok kiri blkg
+    glColor3ub(255,255,255);
+    glVertex3f(-17.5,-10,-30.0);glVertex3f(-17.5,-8,-30.0);glEnd();
+    
+    glBegin(GL_POLYGON);//bendera pojok kiri blkg
+    glColor3ub(252, 252, 0);
+    glVertex3f(-17.5,-8.7,-30.0);glVertex3f(-17.5,-8,-30.0);
+    glVertex3f(-18,-8.7,-30.0);glEnd();
+    
+    glBegin(GL_LINE_LOOP);//tiang pojok kanan blkg
+    glColor3ub(255,255,255);
+    glVertex3f(17.5,-10,-30.0);glVertex3f(17.5,-8,-30.0);glEnd();
+    
+    glBegin(GL_POLYGON);//bendera pojok kanan blkg
+    glColor3ub(252, 252, 0);
+    glVertex3f(17.5,-8.7,-30.0);glVertex3f(17.5,-8,-30.0);
+    glVertex3f(18,-8.7,-30.0);glEnd();
+    
+    glBegin(GL_LINE_LOOP);//tiang pojok kiri depan
+    glColor3ub(255,255,255);
+    glVertex3f(-17.5,-10,30.0);glVertex3f(-17.5,-8,30.0);glEnd();
+    
+    glBegin(GL_POLYGON);//bendera pojok kiri deoan
+    glColor3ub(252, 252, 0);
+    glVertex3f(-17.5,-8.7,30.0);glVertex3f(-17.5,-8,30.0);
+    glVertex3f(-18,-8.7,30.0);glEnd();
+    
+    glBegin(GL_LINE_LOOP);//tiang pojok kanan depan
+    glColor3ub(255,255,255);
+    glVertex3f(17.5,-10,30.0);glVertex3f(17.5,-8,30.0);glEnd();
+    
+    glBegin(GL_POLYGON);//bendera pojok kanan deoan
+    glColor3ub(252, 252, 0);
+    glVertex3f(17.5,-8.7,30.0);glVertex3f(17.5,-8,30.0);
+    glVertex3f(18,-8.7,30.0);glEnd();
+}
 void init(void)
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glMatrixMode(GL_PROJECTION);
+    glEnable(GL_LIGHTING);
+    GLfloat lightColor0[] = {1.0f, 1.0f, 1.0f, 1.0f };
+    GLfloat LightPos0[] = {0.0f, 100.f, -100.0f, 1.0f};
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor0);
+    glLightfv(GL_LIGHT0, GL_POSITION, LightPos0);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_DEPTH_TEST);
     is_depth = 1;
     glMatrixMode(GL_MODELVIEW);
@@ -2948,6 +3097,7 @@ void hilang(void)
     detailingtribun();//fairil
     cangkang1();cangkang2();cangkang3();cangkang4();cangkang5();//luthfi
     detailingcangkang();//bagus
+    tambahan();//fairil
     glPushMatrix();
     glPopMatrix();
     glutSwapBuffers();;
@@ -2962,6 +3112,7 @@ void tampil(void)
     cangkang1();cangkang2();cangkang3();cangkang4();cangkang5();//luthfi
     detailingcangkang();//bagus
     cangkangatas();//fairil
+    tambahan();//fairil
     glPushMatrix();
     glPopMatrix();
     glutSwapBuffers();;
